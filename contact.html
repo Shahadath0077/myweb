@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<style>
+*{
+  box-sizing: border-box;
+  font-family: Verdana;
+  list-style-type: none;
+  text-decoration: none;
+ 
+}
+
+body {
+  margin:0;
+  background: beige;
+  
+}
+
+
+
+
+h3{
+  line-height: 50px;
+  color:black;
+  letter-spacing: 2px;
+}
+
+.active{
+  font-weight: bold;
+  font-size:18px;
+}
+.tab-content{
+  transition: all 0.7s;
+}
+
+
+
+.header {
+  padding-top:1px;
+  text-align: center;
+  background: rgb(28, 191, 191);
+  height:140px;
+  width: 100%;
+}
+
+.header h5 {
+  font-size: 30px;
+  letter-spacing: 4px;
+  color:white;
+  line-height: 3px;
+}
+
+
+
+
+.topnav {
+  overflow: hidden;
+  background-color: teal;  
+}
+.topnav a.active {
+  background-color: maroon;
+  color: white;
+}
+
+.sticky {
+    position: sticky;
+    top: 0px;	
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: lightgray;
+  color: teal;
+  border-radius: 50px;
+
+}
+.container {
+  display: grid;
+  grid-template-columns: 680px;
+  margin-top: -40px;
+  margin-left: 350px;
+
+  
+}
+
+.container > div {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  height: 250px;
+  align-items:center;
+  font-size: 22px;
+  line-height: 50px;
+  border-radius: 30px;
+  border-right-style: double;
+  border-left-style: double;
+  border-left-color: navy;
+  border-right-color: navy;
+  border-right-width: 10px;
+  border-left-width: 10px;
+ 
+  
+}
+
+.column {
+  float: left;
+  width:50%;
+  padding: 5px;
+  height: 40px; /* Should be removed. Only for demonstration */
+ 
+}
+.column-right-text {
+ font-size: 18px;
+ text-align: left;
+ padding-left: 40px;
+}
+.column-left-text {
+ text-align: left;
+ padding-left: 40px;
+ font-size: 19px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+
+.footer {
+  margin-top:40px ;
+  padding-top:3px;
+  text-align: center;
+  background: lightblue;
+  height:70px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.fadeInAndOut {
+    opacity: 1;
+    animation: fadeInOut 1.5s linear;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+ }
+}
+
+.profile-image-resize{
+
+  
+  height: 20px;
+  width: 20px;
+}
+
+
+</style>
+
+<script>
+  var TxtType = function(el, toRotate, period) {
+          this.toRotate = toRotate;
+          this.el = el;
+          this.loopNum = 0;
+          this.period = parseInt(period, 10) || 2000;
+          this.txt = '';
+          this.tick();
+          this.isDeleting = false;
+      };
+  
+      TxtType.prototype.tick = function() {
+          var i = this.loopNum % this.toRotate.length;
+          var fullTxt = this.toRotate[i];
+  
+          if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+          } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+          }
+  
+          this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+  
+          var that = this;
+          var delta = 200 - Math.random() * 100;
+  
+          if (this.isDeleting) { delta /= 2; }
+  
+          if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+          } else if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+          }
+  
+          setTimeout(function() {
+          that.tick();
+          }, delta);
+      };
+  
+      window.onload = function() {
+          var elements = document.getElementsByClassName('typewrite');
+          for (var i=0; i<elements.length; i++) {
+              var toRotate = elements[i].getAttribute('data-type');
+              var period = elements[i].getAttribute('data-period');
+              if (toRotate) {
+                new TxtType(elements[i], JSON.parse(toRotate), period);
+              }
+          }
+          // INJECT CSS
+          var css = document.createElement("style");
+          css.type = "text/css";
+          css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid white}";
+          document.body.appendChild(css);
+      };
+    
+  
+    
+  
+  </script>
+<body>
+    
+
+  <div class="header">
+    <h5>Welcome to my website!</h5>
+    <h2  style="color:white" href="" class="typewrite" data-period="2000" data-type='[ "Web Designer", "Web Developer", "Front End Developer", "Back End Developer", "Apps Designer","Apps Developer" ]'>
+      <span class="wrap"></span>
+    </h2>
+  </div>
+
+
+  <div class="topnav sticky">
+    <a class="active"href="contact.html">Contact</a>
+    <a href="travel.html">Travel</a>
+    <a href="project.html">Project</a>
+    <a href="experience.html">Expereience</a>
+    <a href="education.html">Education</a>
+    <a href="index.html">Home</a>
+  </div>
+  
+
+<div>
+  <h2 style="text-align: center; margin-bottom: 70px;"> Contact Me!</h2>
+</div>
+
+
+<div class="container">
+
+    
+    <div class="row fadeInAndOut">
+       
+        <div class=" column column-left-text"> <img class="profile-image-resize" src="images/e-mail.png" alt="e-mail">  E-mail</div>
+        <div class=" column column-right-text">sarker0077@yahoo.com</div>
+
+        <div class="column column-left-text"><img class="profile-image-resize" src="images/contact.png" alt="contact"> Phone No</div>
+        <div class="column column-right-text">+60165285147</div>
+
+        <div class=" column column-left-text"><img class="profile-image-resize" src="images/linkedin.png" alt="linkedin"> LinkedIn</div>
+        <div class=" column column-right-text"><a href="https://www.linkedin.com/in/shahadath-sarker1989/">visit LinkedIn profile</a></div>
+
+       
+        <div class="column column-left-text"><img class="profile-image-resize" src="images/facebook.png" alt="facebook"> Facebook</div>
+        <div class="column column-right-text"><a href="https://www.facebook.com/polin0077">visit Facebook page</a></div>
+
+
+        <div class="column column-left-text"><img class="profile-image-resize" src="images/youtube.png" alt="youtube"> YouTube</div>
+        <div class="column column-right-text"><a href="https://youtube.com/@polintechandtravel">visit YouTube channel</a></div>
+
+    </div>
+
+</div>
+
+  <div class="footer">
+    <h5>Designed by: Shahadath sarker</h5>
+  </div>
+
+</body>
+</html>
+

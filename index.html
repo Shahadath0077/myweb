@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+*{
+  box-sizing: border-box;
+  font-family: Verdana,Tahoma, sans-serif;
+  
+}
+
+body {
+  margin:0;
+  background: beige;
+  
+}
+
+.header {
+  padding-top:1px;
+  text-align: center;
+  background: rgb(28, 191, 191);
+  height:140px;
+}
+
+.header h5 {
+  font-size: 30px;
+  letter-spacing: 4px;
+  color:white;
+  line-height: 3px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: teal;  
+}
+.topnav a.active {
+  background-color: maroon;
+  color: white;
+}
+
+.sticky {
+    position: sticky;
+    top: 0px;	
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: lightgray;
+  color: teal;
+  border-radius: 50px;
+
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+ position: relative;
+  
+}
+
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.profile-image-resize{
+  justify-content: center;
+  width:230px;
+  height: 270px;
+  margin-top: 80px;
+  margin-left: 80px;
+  border:4px;
+  border-style:ridge;
+  
+}
+
+.profile-image-resize:hover{
+  width:250px;
+  height: 300px;
+ transition: all 0.3s ease-in-out;
+
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Create two equal columns that floats next to each other */
+.left-column {
+  float: left;
+  width: 65%;
+  padding: 90px;
+}
+ .right-column {
+  float: right;
+  width: 35%;
+  padding: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ul.a {
+  list-style-type:square;
+}
+.name{
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.description{
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 100px;
+}
+.image-position{
+  justify-content: end;
+}
+
+.test{
+  background-color: beige;
+ 
+}
+
+.footer {
+  margin-top:40px ;
+  padding-top:3px;
+  text-align: center;
+  background: lightblue;
+  height:70px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.technical-skils{
+   font-size: 16px;
+   line-height: 40px;
+   margin-left: -10px;
+   
+}
+
+.key-skils{
+   font-size: 16px;   
+   line-height: 40px;
+   margin-left: 10px;
+   text-align-last: justify;
+   
+}
+.fadeInAndOut {
+    opacity: 1;
+    animation: fadeInOut 1.5s linear;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+ }
+}
+
+.head-image-resize{
+  width:100px;
+  height: 100px;
+  margin-top: -70px;
+  margin-left:-20px;
+  margin-bottom: 30px;
+}
+
+</style>
+
+
+<script>
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid white}";
+        document.body.appendChild(css);
+    };
+	
+
+  
+
+</script>
+
+</head>
+<body>
+
+<div class="header">
+  <h5>Welcome to my website!</h5>
+  <h2  style="color:white" href="" class="typewrite" data-period="2000" data-type='[ "Web Designer", "Web Developer", "Front End Developer", "Back End Developer", "Apps Designer","Apps Developer" ]'>
+    <span class="wrap"></span>
+  </h2>
+</div>
+
+<div class="topnav sticky">
+  <a href="contact.html">Contact</a>
+  <a href="travel.html">Travel</a>
+  <a href="project.html">Project</a>
+  <a href="experience.html">Expereience</a>
+  <a href="education.html">Education</a>
+  <a class="active" href="javascript:void(0)">Home</a>
+ 
+</div>
+
+
+
+
+<div class="row test">
+  <div class="left-column">
+   
+    <h3  style="margin-top:-30px;" class="typewrite" data-period="2000" data-type='[ "Hi, my name is" ]'><span class="wrap"></span></h3>
+
+    <div class="name">Md Shahadath Sarker.</div>
+    <div class="description">I build things for the web.</div>
+
+    
+    
+      <p style="line-height: 30px">I’m a software engineer with >6 years experience in designing, developing, testing, and maintaining enterprise web applications and software solutions for cash, coin and cheque deposit machines.</p>
+      <p style="line-height: 30px">Able to coordinate with internal and external stakeholders, translating complex ideas into actionable outcomes to meet business objectives.
+        	Provide training and technical support for end users</p>
+
+
+          
+            <h3> [Technical Skills]</h3>
+            <ul class="technical-skils">             
+              <li> Programming Languages: C#, Java, JavaScript, Python</li>
+              <li> Web Applications: ASP.Net, Blazor, HTML, CSS</li>
+              <li> Mobile Application: .Net MAUI</li>
+              <li> Database Software: MySQL, SQLite, Oracle, PostgreSQL</li>
+              <li> IDE: Visual Studio, Netbeans, Eclipse, Arduino IDE</li>
+              <li> Others: Git, MVC Design Pattern, Agile Methodology, REST API, Azure DevOps</li>
+            </ul>
+       
+
+           <h3> [Key Skills]</h3>
+        
+           <p class="key-skils">Software Analysis & Design | Software Testing | Technical Documentation | 
+           Customer Technical Support | Gather User Requirements | Agile Methodology | 
+           Continuous Integration & Project Management | Internal Team Development | User Training </p> 
+
+          <h3> [Languages]</h3>
+          <p style="margin-left:10px;">English, Bangla, Bahasa Melayu and Hindi</p> 
+         
+          <h3> [Fund]</h3>
+          <p style="margin-left:10px;">Research Fund from Ministry of Higher Education Malaysia</p> 
+          
+          <h3> [Publication]</h3>
+          <p style="margin-left:10px; line-height: 30px; font-style: italic;">Rohaida Binti Romli, Md Shahadath Sarker, Mazni Binti Omar, Musyrifah binti Mahmod (2020). Automated Test Cases and Test Data Generation for Dynamic Structural Testing in Automatic Programming Assessment Using MC/DC.
+          International Journal on Advanced Science, Engineering and Information Technology, 10(1), 120 - 127.</p> 
+
+
+
+
+  </div>
+  <div class="right-column fadeInAndOut">
+    <img class="profile-image-resize image-position" src="images/photo.jpg" alt="profile pic">
+  </div>
+</div>
+
+  <div class="footer">
+    <h5>Designed by: Shahadath sarker</h5>
+  </div>
+</body>
+
+</html>
+
+
