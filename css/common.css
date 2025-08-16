@@ -1,0 +1,92 @@
+
+/* Commom css for header, top nav, footer,fade in and out effect */
+
+*{
+  box-sizing: border-box;
+  font-family: Verdana,Tahoma, sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+body {
+  margin:0;
+  background: beige;
+}
+
+.header {
+  padding-top:1px;
+  text-align: center;
+  background: rgb(28, 191, 191);
+  height:140px;
+  width: 100%;
+}
+.header h5 {
+  font-size: 30px;
+  letter-spacing: 4px;
+  color:white;
+  line-height: 3px;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: teal; 
+}
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.topnav a.active {
+  background-color: maroon;
+  color: white;
+}
+.topnav a:hover {
+  background-color: lightgray;
+  color: maroon;
+  border-radius: 50px;
+}
+.sticky {
+    position: sticky;
+    top: 0px;	
+}
+.footer {
+  margin-top:40px ;
+  padding-top:3px;
+  text-align: center;
+  background: lightblue;
+  height:70px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.fadeInAndOut {
+    opacity: 1;
+    animation: fadeInOut 1.5s linear;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+ }
+}
+
+.autoShow{
+  animation: text-appear 1.0s linear; 
+}
+
+@keyframes text-appear {
+0%{
+  opacity:0;
+  transform:translateY(80px);
+
+}
+100%{
+  opacity:1;
+  transform:translateY(0);
+  }
+}

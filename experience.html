@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My First Website</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+   <link rel="stylesheet" href="css/experience.css">
+   <link rel="stylesheet" href="css/common.css">
+   <script src="js/type-writer.js"></script>
+
+
+
+<body>
+    
+
+  <div class="header">
+    <h5>Welcome to my website!</h5>
+    <h2  style="color:white" href="" class="typewrite" data-period="2000" data-type='[ "Web Designer", "Web Developer", "Front End Developer", "Back End Developer", "Apps Designer","Apps Developer" ]'>
+      <span class="wrap"></span>
+    </h2>
+  </div>
+
+
+  <div class="topnav sticky">
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel</a>
+    <a href="project.html">Project</a>
+    <a class="active"="experience.html">Expereience</a>
+    <a href="education.html">Education</a>
+    <a href="index.html">Home</a>
+   
+  </div>
+  
+
+<div>
+  <h2  style="margin-left: 210px; margin-top: 60px;" class="typewrite" data-period="2000" data-type='[ "Work Experiences" ]'><span class="wrap"></span></h2>
+
+</div>
+
+ <div>
+       <img class="icon-resize image-position fadeInAndOut" src="images/experience.png" alt="indonesia_flag">
+    </div>
+<div class="container">   
+    <div class="sidebar autoShow">
+        <ul>
+             
+            <li ><a class="active" href="#stansall"><span style="color: Tomato;">&#9813;</span> STANSALL (M) SDN BHD</a></li>
+            <li><a class="academic" href="#profitera"><span style="color: Blue;">&#9813;</span> PROFITERA CORPORATION SDN BHD</a></li>
+           
+          </ul>
+
+
+    </div>
+    <div class="main-content">
+
+      <div id="stansall" class="tab-content"> 
+        <div class="card fadeInAndOut">
+                <img class="company-logo" src="images/stansall.png" alt="photo">
+                <p class="profession"> SOFTWARE ENGINEER</p>
+                <p class="duration"> SEP 2017 to Present</p>
+                <p class="responsibilities"> [My Job Responsibilities]</p>
+          <ul>             
+            <li> Gather technical customer requirements, plan and assign team members’ responsibilities.</li>
+            <li> Design and develop application for cash and coin deposit machine used by retail customers.</li>
+            <li> Develop XFS based application for ATM machine used by financial institution.</li>
+            <li> Develop web portal and desktop application to view the machine transaction information.</li>
+            <li> Develop web API, socket programming to communicate between machine and web server..</li>
+            <li> Author and review documentations, proposing recommendations and improvements to mitigate potential risks..</li>
+           
+          </ul>
+
+
+          
+
+        
+          </div>
+      </div>
+
+      <div id="profitera" class="tab-content">
+        <div class="card fadeInAndOut">
+                <img class="company-logo" src="images/profitera.png" alt="photo">
+                <p class="profession"> SOFTWARE TESTER</p>
+                <p class="duration"> FEB 2013 to DEC 2013</p>
+                <p class="responsibilities"> [My Job Responsibilities]</p>
+          <ul>             
+            <li> Analyzing user requirements for validity and feasibility.</li>
+            <li> Collaborating closely with multi-national team members of different departments.</li>
+            <li> Designing and developing test cases, executing all levels of testing for the application.</li>
+            <li> Reporting bug or issues of the application using bug tracker tools.</li>
+            <li> Providing user onsite training, preparing technical documentation.</li>
+             
+           
+          </ul>
+          <p class="responsibilities"> [Significant Highlights]</p>
+           <ul> 
+            <li> I have got the full time job offer  after doing internship in this company.</li>
+          </ul>  
+          </div>
+      </div>
+
+    
+
+    
+    </div>
+
+
+    
+
+</div>
+
+
+
+
+ <script> 
+    $(document).ready(function () {
+    // master click
+      $(".accordion_head").click(function () {    
+          if ($('.accordion_body').is(':visible')) 
+          {
+              $(".accordion_body").slideUp(300);
+              $(".plusminus").text('+');
+          }
+          if ($(this).next(".accordion_body").is(':visible')) 
+          {
+              $(this).next(".accordion_body").slideUp(800);
+              $(this).children(".plusminus").text('+');
+           
+          } 
+          else 
+          {
+              $(this).next(".accordion_body").slideDown(800);
+              $(this).children(".plusminus").text('-');
+          }
+      });
+
+
+    });
+
+  </script>
+
+  <script>
+
+    $(".about").click(function(){
+      $('.main-content').hide().show(2000);
+
+   })
+
+    $(".academic").click(function(){
+      $('.accordion_head').show(100);
+      
+   })
+
+
+
+   $(document).ready(function () {
+    $('.sidebar ul li:first').addClass('active');
+    $('.tab-content:not(:first)').hide();
+    $('.sidebar ul li a').click(function (event) {
+        event.preventDefault();
+        var content = $(this).attr('href');
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        $(content).show();
+        $(content).siblings('.tab-content').hide();
+    });
+});  
+
+
+
+  </script>
+
+
+  <script>
+    $(document).ready(function(){
+      $('#contact-me').click(function(){
+        $('#contact').load('test.html')
+      })
+      
+    })
+
+  </script>
+
+
+
+ <div class="footer">
+    <h5>Designed by: Shahadath sarker</h5>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/common.css">
+
+<script src="js/type-writer.js"></script>
+
+<script>
+      const element = document.querySelector('.key-skils');
+
+      const observer = new IntersectionObserver((entries) => {
+       if (entries[0].isIntersecting) {
+        element.classList.add('visible');
+       }
+     });
+
+     observer.observe(element);
+</script>
+
+</head>
+<body>
+
+<div class="header">
+  <h5>Welcome to my website!</h5>
+  <h2  style="color:white" href="" class="typewrite" data-period="2000" data-type='[ "Web Designer", "Web Developer", "Front End Developer", "Back End Developer", "Apps Designer","Apps Developer" ]'>
+    <span class="wrap"></span>
+  </h2>
+</div>
+
+<div class="topnav sticky">
+  <a href="contact.html">Contact</a>
+  <a href="travel.html">Travel</a>
+  <a href="project.html">Project</a>
+  <a href="experience.html">Expereience</a>
+  <a href="education.html">Education</a>
+  <a class="active" href="javascript:void(0)">Home</a>
+ 
+</div>
+
+<div class="row">
+   
+  <div class="left-column">
+   
+    <h3  style="margin-top:-40px;" class="typewrite" data-period="2000" data-type='[ "Hi, my name is" ]'><span class="wrap"></span></h3>
+
+    <div class="name autoShow">Md Shahadath Sarker.</div>
+    <div class="description autoShow">I build things for the web.</div>
+
+    
+<div  class="autoShow" style="line-height: 30px;text-align: justify;">
+ I’m a software engineer with >6 years experience in designing, developing, testing, and maintaining enterprise web applications and software solutions for cash, coin and cheque deposit machines.
+</div>
+
+<div  class="autoShow" style="line-height: 30px;margin-top: 30px;">
+    Able to coordinate with internal and external stakeholders, translating complex ideas into actionable outcomes to meet business objectives.
+    Provide training and technical support for end users
+</div>
+
+     
+     
+
+            <h3> [Technical Skills]</h3>
+            <ul class="technical-skils">             
+              <li> Programming Languages: C#, Java, JavaScript, Python</li>
+              <li> Web Applications: ASP.Net, Blazor, HTML, CSS</li>
+              <li> Mobile Application: .Net MAUI</li>
+              <li> Database Software: MySQL, SQLite, Oracle, PostgreSQL</li>
+              <li> IDE: Visual Studio, Netbeans, Eclipse, Arduino IDE</li>
+              <li> Others: Git, MVC Design Pattern, Agile Methodology, REST API, Azure DevOps</li>
+            </ul>
+       
+
+           <h3> [Key Skills]</h3>
+        
+           <p class="key-skills">Software Analysis & Design | Software Testing | Technical Documentation | 
+           Customer Technical Support | Gather User Requirements | Agile Methodology | 
+           Continuous Integration & Project Management | Internal Team Development | User Training </p> 
+
+          <h3> [Languages]</h3>
+          <p style="margin-left:10px;">English, Bangla, Bahasa Melayu and Hindi</p> 
+         
+          <h3> [Fund]</h3>
+          <p style="margin-left:10px;">Research Fund from Ministry of Higher Education Malaysia</p> 
+          
+          <h3> [Publication]</h3>
+          <p style="margin-left:10px; line-height: 30px; font-style: italic;">Rohaida Binti Romli, Md Shahadath Sarker, Mazni Binti Omar, Musyrifah binti Mahmod (2020). Automated Test Cases and Test Data Generation for Dynamic Structural Testing in Automatic Programming Assessment Using MC/DC.
+          International Journal on Advanced Science, Engineering and Information Technology, 10(1), 120 - 127.</p> 
+
+
+  </div>
+  <div class="right-column fadeInAndOut">
+    <img class="profile-image-resize" src="images/photo.jpg" alt="profile pic">
+  </div>
+
+</div>
+
+  <div class="footer">
+    <h5>Designed by: Shahadath sarker</h5>
+  </div>
+</body>
+
+</html>
+
+

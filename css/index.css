@@ -1,0 +1,107 @@
+
+
+
+.profile-image-resize{
+  justify-content: center;
+  width:230px;
+  height: 270px;
+  margin-top: 80px;
+  margin-left: 80px;
+  border:4px;
+  border-style:ridge;
+  transition: all 0.3s ease-in-out;
+}
+.profile-image-resize:hover{
+  width:240px;
+  height: 280px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Create two equal columns that floats next to each other */
+.left-column {
+  float: left;
+  width: 65%;
+  padding: 90px;
+}
+
+ .right-column {
+  float: right;
+  width: 35%;
+  padding: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ul.a {
+  list-style-type:square;
+}
+.name{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.description{
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100px;
+  
+}
+
+.technical-skils{
+   font-size: 16px;
+   line-height: 40px;
+   margin-left: -10px;
+}
+
+.key-skills{
+   font-size: 16px;   
+   line-height: 40px;
+   margin-left: 10px;
+   text-align-last: justify;
+   
+}
+
+/*not using now its for pop up  */
+.profile-image {
+  position:sticky; /* or absolute, depending on parent */
+  bottom: -300px; /* Adjust based on card height */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  opacity: 0;
+  transition: bottom 0.5s ease-out, opacity 0.5s ease-out; /* Smooth transition */
+  margin-left: 830px;
+   margin-top: -200px;
+}
+
+.profile-image.show {
+  bottom: 50px; /* Or a desired positive value */
+  opacity: 1;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My First Website</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+  <link rel="stylesheet" href="css/education.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/type-writer.js"></script>
+
+<body>
+    
+
+  <div class="header">
+    <h5>Welcome to my website!</h5>
+    <h2  style="color:white" href="" class="typewrite" data-period="2000" data-type='[ "Web Designer", "Web Developer", "Front End Developer", "Back End Developer", "Apps Designer","Apps Developer" ]'>
+      <span class="wrap"></span>
+    </h2>
+  </div>
+
+
+  <div class="topnav sticky">
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel</a>
+    <a href="project.html">Project</a>
+    <a href="experience.html">Expereience</a>
+    <a class="active" href="education.html">Education</a>
+    <a href="index.html">Home</a>
+   
+  </div>
+  
+
+<div>
+  <h2  style="margin-left: 190px; margin-top: 50px;" class="typewrite" data-period="2000" data-type='[ "My Education" ]'><span class="wrap"></span></h2>
+
+</div>
+
+
+
+ <div>
+       <img class="icon-resize image-position fadeInAndOut" src="images/education.png" alt="indonesia_flag">
+    </div>
+
+<div class="container">   
+    <div class="sidebar autoShow">
+        <ul>
+             
+            <li ><a class="active" href="#masters"><span style="color: Tomato;">&#9813;</span> Masters</a></li>
+            <li><a class="academic" href="#bachelor"><span style="color: Blue;">&#9813;</span> Bachelor</a></li>
+            <li><a href="#diploma"><span style="color:teal;">&#9813;</span> Diploma</a></li>
+            <li><a href="#higher-secondary"><span style="color: green;">&#9813;</span> Higher Secondary</a></li>
+            <li><a href="#secondary-school"><span style="color: Red;">&#9813;</span> Secondary School</a></li>
+            
+          </ul>
+
+
+    </div>
+    <div class="main-content">
+
+      <div id="masters" class="tab-content  "> 
+        <div class="card  fadeInAndOut">
+                <img class="institute-logo" src="images/logo_uum.png" alt="photo">
+                <p class="institute-name"><span>&#9813;</span> University Utara Malaysia, Malaysia</p>
+                <p class="result"><span>&#9813;</span> Master of Information Technology </p>
+                <p class="result"><span>&#9813;</span> CGPA: 3.80 out of 4.00</p>
+                <p class="pass-year"><span>&#9813;</span> Graduation Year:2016</p>
+          </div>
+      </div>
+
+      <div id="bachelor" class="tab-content">
+        <div class="card  autoShow">
+          <img class="institute-logo" src="images/logo_uum.png" alt="photo">
+          <p class="institute-name"><span>&#9813;</span> University Utara Malaysia, Malaysia</p>
+          <p class="result"><span>&#9813;</span> Bachelor of Information Technology </p>
+          <p class="result"><span>&#9813;</span> CGPA: 3.41 out of 4.00</p>
+          <p class="pass-year"><span>&#9813;</span> Graduation Year:2013</p>
+        </div>
+      </div>
+
+      <div id="diploma" class="tab-content">
+        <div class="card autoShow">
+          <img class="institute-logo-diploma" src="images/diploma_logo.png" alt="photo">
+          <p class="institute-name"><span>&#9813;</span> Flamingo International College, Malaysia</p>
+          <p class="result"><span>&#9813;</span> Diploma of Computer Studies </p>
+          <p class="result"><span>&#9813;</span> Grade: A</p>
+          <p class="pass-year"><span>&#9813;</span> Graduation Year:2009</p>
+        </div>
+      </div>
+
+      <div id="higher-secondary" class="tab-content">
+        <div class="card autoShow">
+          <img class="institute-logo-college" src="images/college_logo.png" alt="photo">
+          <p class="institute-name"><span>&#9813;</span> Govt.Science College, Dhaka</p>
+          <p class="result"><span>&#9813;</span> Higher Secondary School Certificate (HSC) </p>
+          <p class="result"><span>&#9813;</span> GPA: 4.50 out of 5.00</p>
+          <p class="pass-year"><span>&#9813;</span> Graduation Year:2006</p>
+        </div>
+      </div>
+  
+      <div id="secondary-school" class="tab-content">
+        <div class="card autoShow">
+          <img class="institute-logo-school" src="images/school_logo.png" alt="photo">    
+          <p class="institute-name"><span>&#9813;</span> Gouripur S.A. High School, Cumilla</p>
+          <p class="result"><span>&#9813;</span> Secondary School Certificate (SSC) </p>
+            <p class="result"><span>&#9813;</span> GPA: 4.81 out of 5.00</p>
+            <p class="pass-year"><span>&#9813;</span> Graduation Year:2004</p>
+        </div>
+      </div>
+
+    
+    </div>
+</div>
+
+
+
+
+ <div class="footer">
+    <h5>Designed by: Shahadath sarker</h5>
+ </div>
+
+
+
+
+  <script>
+
+    $(".tt").click(function(){
+      $('.tab-content').slideDown(1000);
+
+   })
+
+    $(".academic").click(function(){
+      $('.accordion_head').show(100);
+      
+   })
+
+
+
+   $(document).ready(function () {
+    $('.sidebar ul li:first').addClass('active');
+    $('.tab-content:not(:first)').hide();
+    $('.sidebar ul li a').click(function (event) {
+        event.preventDefault();
+        var content = $(this).attr('href');
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        $(content).show();
+        $(content).siblings('.tab-content').hide();
+    });
+});  
+
+
+  </script>
+
+
+
+
+
+
+</body>
+</html>
+
